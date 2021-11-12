@@ -7,7 +7,7 @@ function applicationSubmit() {
         result = false;
     }
     
-    // const pattern = /[a-zA-Z]{2-20}/;
+    // const pattern = /[a-zA-Z]{2,20}/;
     // if (!pattern.test(fname)) {
     //     showError("Firstname must contain only letters and be from 2 to 20 characters", "fname_div");
     //     result = false;
