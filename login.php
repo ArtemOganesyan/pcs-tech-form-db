@@ -39,7 +39,7 @@
         $login =  $_REQUEST['login'];
         $password = $_REQUEST['password'];
 
-        $sql = "SELECT id, login, firstname, lastname, pass FROM users WHERE login='$login' AND pass='$password'";
+        $sql = "SELECT id, login, firstname, lastname, pass FROM users WHERE login='$login' AND binary pass='$password'";
 
         $result = mysqli_query($conn, $sql);
         $num_results = mysqli_num_rows($result);

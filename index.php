@@ -8,6 +8,38 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
+        <script>
+            var HttpClient = function() {
+                this.get = function(aUrl, aCallback) {
+                    var anHttpRequest = new XMLHttpRequest();
+                    anHttpRequest.onreadystatechange = function() { 
+                        if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                            aCallback(anHttpRequest.responseText);
+                    }
+
+                    anHttpRequest.open("GET", aUrl, true);            
+                    anHttpRequest.send(null);
+                }
+            }
+
+            get_users();
+            function get_users() {
+                var client = new HttpClient();
+                client.get("http://localhost:8888/api/users.php", function(response) {
+                    console.log(response);
+                    var users = JSON.parse(response);
+                    var list = document.getElementById('api_results');
+
+                    for (var user of users) 
+                    {
+                        var elem = document.createElement('div');
+                        elem.style = 'margin:25px;color:darkgrey';
+                        elem.innerHTML = 'UserId: ' + user.id + ' Login:' + user.login + '<br>';
+                        list.appendChild(elem);
+                    }
+                });
+            }
+        </script>
         <?php include 'menu.php'?>
         <div class="page-content">
             <h2>Home page</h2>
@@ -20,5 +52,7 @@
                 }
             ?>
         </div>
+        <hr>
+        <div id="api_results"></div>
     </body>
 </html>

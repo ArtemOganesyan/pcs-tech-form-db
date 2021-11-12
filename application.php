@@ -11,17 +11,17 @@
         <?php include 'menu.php'?>
         <div class="page-content">
             <h2>New application</h2>
-            <form action="application.php" method="post" name="application" id="application">
+            <form action="application.php" method="post" name="application" id="application" onsubmit="return applicationSubmit()">
                 <div class="form-group">
                     <div id="fname_div">
                         <label for="user_firstname">Firstname</label>
                         <input type="text" id="user_firstname" name="firstname">
                     </div>
-                    <div>
+                    <div id="lname_div">
                         <label for="user_lastname">Lastname</label>
                         <input type="text" id="user_lastname" name="lastname">
                     </div>
-                    <div>
+                    <div id="phone_div">
                         <label for="phone">Phone</label>
                         <input type="text" id="phone" name="phone">
                     </div>
@@ -74,11 +74,11 @@
                         <label for="delivery_date">Delivery date</label>
                         <input class="datefield" type="date" id="delivery_date" name="delivery_date">
                     </div>
-                    <input style="margin-top:20px" type="submit" value="Save" name="save" id="save" onclick="applicationSubmit()">
+                    <input style="margin-top:20px" type="submit" value="Save" name="save" id="save">
                 </div>
             </form>
         </div>
-        <!-- <script src="validator.js"></script> -->
+        <script src="validator.js"></script>
     </body>
 </html>
 
