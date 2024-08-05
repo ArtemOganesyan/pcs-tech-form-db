@@ -18,7 +18,6 @@ CREATE TABLE dct_country (
 
 INSERT INTO dct_country (code, name)
 VALUES
-    ('RU', 'Russia'),
     ('US', 'United States'),
     ('EG', 'Egypt'),
     ('FR', 'France');
